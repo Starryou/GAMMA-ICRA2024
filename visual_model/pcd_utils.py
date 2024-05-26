@@ -27,7 +27,8 @@ def visu_point_cloud_with_bbox_pose_color(pcds, pre_bbox, gt_bbox):
     vis_list.append(pcd)
     coord_frame = o3d.geometry.TriangleMesh.create_coordinate_frame(size=0.3, origin=[0, 0, 0])
     vis_list.append(coord_frame)
-    o3d.visualization.draw_geometries(vis_list)
+    # o3d.visualization.draw_geometries(vis_list)
+    o3d.visualization.draw_plotly(vis_list)
 
 
 
@@ -36,7 +37,8 @@ def view_point(point_cloud):
     cloud = o3d.geometry.PointCloud()
     cloud.points = o3d.utility.Vector3dVector(point_cloud)
     cloud.paint_uniform_color([0.1, 0, 0.1])
-    o3d.visualization.draw_geometries([cloud, axis_pcd])
+    # o3d.visualization.draw_geometries([cloud, axis_pcd])
+    o3d.visualization.draw_plotly([cloud, axis_pcd])
 
 
 def view_point_and_fps(point_cloud, mask, fps_ids):
@@ -53,7 +55,8 @@ def view_point_and_fps(point_cloud, mask, fps_ids):
     cloud.points = o3d.utility.Vector3dVector(point_cloud[fps_ids])
     cloud.paint_uniform_color([1, 0, 0.1])
     clouds.append(cloud)
-    o3d.visualization.draw_geometries([*clouds, axis_pcd])
+    # o3d.visualization.draw_geometries([*clouds, axis_pcd])
+    o3d.visualization.draw_plotly([*clouds, axis_pcd])
 
 
 def pc_camera_to_world(pc, extrinsic):
